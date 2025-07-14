@@ -268,7 +268,7 @@ Use this token to authenticate requests or set DANGEROUSLY_OMIT_AUTH=true to dis
 
 ```
 
-http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=a70e7d7d79cea9f735ee7237f0e5b3df9c867b8eea1e431cb9783e746263908e#resources
+- http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=a70e7d7d79cea9f735ee7237f0e5b3df9c867b8eea1e431cb9783e746263908e#resources
 
 - **Transport Type** (STDIO)
 - **Command** (node)

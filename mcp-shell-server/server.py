@@ -34,6 +34,21 @@ async def terminal_tool(command: str) -> Dict[str, Any]:
             "return_code": -1
         }
 
+# Expose a resource for mcpPySdkREADME.md
+@mcp.resource("file:///mcpPySdkREADME")
+async def mcpPySdkREADME() -> str:
+    """
+    Expose the contents of mcpPySdkREADME.md as a resource.
+    Returns:
+        The contents of the file as a string, or an error message if not found.
+    """
+    file_path = r"D:\development\mcp-servers\mcpPySdkREADME.md"
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            return f.read()
+    except Exception as e:
+        return f"Error reading mcpPySdkREADME.md: {str(e)}"
+
 if __name__ == "__main__":
     print("Starting MCP server...")
     mcp.run("stdio") 

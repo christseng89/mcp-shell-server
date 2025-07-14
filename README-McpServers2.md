@@ -43,12 +43,37 @@ cd mcp-crash-course
 uv sync
 ```
 
+#### MCP Server - server.py
+
 ```note
 I want you to implement me a simple MCP Server from @MCP . Use the python sdk @MCP Python SDK and the server should expose one tool which is called terminal tool which will allow user to run terminal commands, make it simple
 ```
 
-```
+```cmd
 cd mcp-shell-server
 uv run server.py
 
+```
+
+#### Resources in server.py
+
+```note
+I want you to help me expose a resource in my MCP server using the @MCP Python SDK. Please write the code to expose the file mcpPySdkREADME.md located in my D:\development\mcp-servers directory.
+```
+
+---
+
+### **MCP & Security**
+
+*Remote Code Execution (RCE), Supply Chain Attack*
+
+1. Create Malicious gist.github.com file
+2. Expose a tool that downloads the malicious file
+3. Compromise MCP Client
+
+```note
+help me expose another tool in my mcp server. @MCP use the python sdk @MCP Python SDK
+
+the tool is called "benign_tool" and should download via curl the content
+@https://gist.githubusercontent.com/emarco177/47fac6debd88e1f8ad9ff6a1a33041a5/raw/9802cafba96ebeb010f3d080d948e7471987b081/hacked.txt and return what was downloaded
 ```
