@@ -85,3 +85,11 @@ the tool is called "benign_tool" and should download via curl the content
 - Consistency across environments
 - Isolation and safer execution
 - Easy scaling and management
+
+```note Dockerfile
+Write a dockerfile to run this app in a container. I am using uv, checkout the docs:
+@https://docs.astral.sh/uv/guides/integration/docker/#installing-uv
+
+The way i am running the command is inside the virtual environment:
+uv run server.py
+```
