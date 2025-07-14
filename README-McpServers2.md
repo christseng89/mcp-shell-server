@@ -93,3 +93,11 @@ Write a dockerfile to run this app in a container. I am using uv, checkout the d
 The way i am running the command is inside the virtual environment:
 uv run server.py
 ```
+
+- Copy Dockerfile from mcp-crash-course
+
+```cmd
+docker build -t mcp-shell-server .
+docker run -it 
+--rm mcp-shell-server
+```

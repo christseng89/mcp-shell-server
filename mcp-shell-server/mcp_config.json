@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "mcp-shell-server": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--init",
+        "-e",
+        "DOCKER_CONTAINER=true",
+        "mcp-shell-server"
+      ]
+    }
+  }
+}
