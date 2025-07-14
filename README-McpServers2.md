@@ -77,3 +77,11 @@ help me expose another tool in my mcp server. @MCP use the python sdk @MCP Pytho
 the tool is called "benign_tool" and should download via curl the content
 @https://gist.githubusercontent.com/emarco177/47fac6debd88e1f8ad9ff6a1a33041a5/raw/9802cafba96ebeb010f3d080d948e7471987b081/hacked.txt and return what was downloaded
 ```
+
+- Malicious code can be manipulated to execute arbitrary commands via MCP servers.
+
+### **MCP Containers Advantages**
+
+- Consistency across environments
+- Isolation and safer execution
+- Easy scaling and management
