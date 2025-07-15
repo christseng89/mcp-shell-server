@@ -74,5 +74,16 @@ uv add langchain-mcp-adapters langgraph "langchain[openai]"
 uv add python-dotenv
 uv run main.py
 
+REM Part II
+uv run servers\math_server.py
+uv run servers\weather_server.py
+    INFO:     Started server process [10168]
+    INFO:     Waiting for application startup.
+    StreamableHTTP session manager started
+    INFO:     Application startup complete.
+    INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
 ```
 
+#### Using Postman to test Weather MCP SSE server
+
+- http://localhost:8000/mcp/
