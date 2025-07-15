@@ -38,80 +38,25 @@ REM wsl --cd ~/projects/mcp-servers/quickstart-resources/weather-server-python -
 ### MCP Servers architecture
 
 - The Model Context Protocol (**MCP**) is explicitly designed to facilitate smooth connections between **LLM applications** and **external data sources** and **tools**, as stated in the documentation. This seamless integration allows LLMs to effectively interact with various resources, enhancing their capabilities and utility.
-- An **MCP Server** serves as a lightweight program that specifically **exposes** capabilities, such as **tools** or **data**, through the MCP protocol. 
-- The MCP Server is designed to be **language-agnostic**, meaning it can be implemented in any programming language, allowing for flexibility and adaptability in various development environments.
-- The MCP Server is intended to be **lightweight** and **stateless**, ensuring that it can run efficiently without minimal resource overhead. This lightweight nature ensures that the server can be easily deployed and maintained, making it suitable for a wide range of applications and environments.
-
-```
-                   +---------------------+
-                   |      MCP Host       |
-                   |                     |
-                   |  Claude / Desktop   |
-                   |     IDE / AI Tools  |
-                   +----------+----------+
-                              |
-                         MCP Protocol
-                              |
-                       +------+-------+ 
-                       | MCP Clients  | 
-                       | (invoke      |
-                       |  tools on    |
-                       |  Servers)    |
-                       +------+-------+ 
-                              |
-              +---------------+---------------+
-              |               |               |
-      +-------v-----+  +------v------+  +-----v------+
-      | MCP Server  |  | MCP Server  |  | MCP Server |
-      |     A       |  |     B       |  |     C      |
-      +-------+-----+  +------+------|  +-----+------+
-              |               |               |
-      +-------v-----+  +------v------+  +-----v------+
-      | Google      |  | PostgreSQL  |  | Web APIs   |
-      | Drive       |  | DB          |  | (Internet, |
-      |             |  |             |  |  GitHub,   |
-      |             |  |             |  |  Slack)    |
-      +-------------+  +-------------+  +------------+
-    minimal resource overhead. This lightweight nature ensures that the server can be easily deployed and maintained, making it suitable for a wide range of applications and environments.
-    
-```
-
-## The Theory of MCP Servers
-
-MCP Client:    <----------------->  MCP Server:
-- invokes Tools,                    - exposes Tools,
-- queries for Resources,            - exposes Resources,
-- interpolates Prompts              - exposes Prompts
+- An **MCP Server** serves as a lightweight program that specifically **
 
 ---
 
-### Tools *(Model-Controlled)*
+### Model Context Protocol Architecture Overview
 
-Functions invoked by the model:
+| MCP Client | ↔ | MCP Server |
+|------------|---|------------|
+| - Invoke **Tools** |   | - Exposes **Tools** |
+| - Queries for **Resources** |   | - Exposes **Resources** |
+| - Interpolates **Prompts** |   | - Exposes **Prompts** |
 
-* Retrieve / Search
-* Send Message
-* Update DB
-
----
-
-### Resources *(Application-Controlled)*
-
-Data exposed to the application:
-
-* Files
-* DB Records
-* API Responses
-
----
-
-### Prompts *(User-Controlled)*
-
-Pre-defined templates for AI interactions:
-
-* Documentation Q\&A
-* Transcript Summary
-* Output as JSON
+| **Tools**                | **Resources**               | **Prompts**                    |
+|--------------------------|-----------------------------|--------------------------------|
+| *Model-Controlled*       | *Application-Controlled*    | *User-Controlled*              |
+| Functions invoked by the model | Data exposed to the application | Pre-defined templates for AI interactions |
+| - Retrieve / Search      | - Files                     | - Documentation Q&A            |
+| - Send Message           | - DB Records                | - Transcript Summary           |
+| - Update DB              | - API Responses             | - Output as JSON               |
 
 ---
 
