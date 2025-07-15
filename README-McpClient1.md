@@ -59,8 +59,11 @@ uv sync
 
 ```
 
-### Create a new MCP Adapter folder
+### Create a new MCP Adapters Folder
+
 - https://github.com/langchain-ai/langchain-mcp-adapters
+- https://modelcontextprotocol.io/clients
+- https://github.com/modelcontextprotocol/python-sdk?tab=readme-ov-file#completions
 
 ```cmd
 cd ..
@@ -87,3 +90,9 @@ uv run servers\weather_server.py
 #### Using Postman to test Weather MCP SSE server
 
 - http://localhost:8000/mcp/
+
+```cmd
+REM *Modify Main.py*
+uv run main.py
+    Hello from mcp-adapters!
+```
