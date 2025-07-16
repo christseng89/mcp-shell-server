@@ -41,18 +41,18 @@ async def main():
     #         await session.initialize()
     #         print("Session initialized")
     #         tools = await load_mcp_tools(session)
-        tools = await client.get_tools()
-        print (f"Loaded {len(tools)} tools")
-        for tool in tools:
-            print(f"Tool: {tool.name}, Description: {tool.description}")
-        
-        print("\nCreating react agent")
-        agent = create_react_agent(llm,tools)
-        math_response = await agent.ainvoke({"messages": [HumanMessage(content="What is 54 + 2 * 3?")]})
-        print(math_response["messages"][-1].content)
+    tools = await client.get_tools()
+    print (f"Loaded {len(tools)} tools")
+    for tool in tools:
+        print(f"Tool: {tool.name}, Description: {tool.description}")
+    
+    print("\nCreating react agent")
+    agent = create_react_agent(llm,tools)
+    math_response = await agent.ainvoke({"messages": [HumanMessage(content="What is 54 + 2 * 3?")]})
+    print(math_response["messages"][-1].content)
 
-        weather_response = await agent.ainvoke({"messages": "what is the weather in nyc?"})
-        print(weather_response["messages"][-1].content)
+    weather_response = await agent.ainvoke({"messages": "what is the weather in nyc?"})
+    print(weather_response["messages"][-1].content)
 
 
 if __name__ == "__main__":
