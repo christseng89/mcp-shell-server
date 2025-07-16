@@ -96,3 +96,14 @@ REM *Modify Main.py*
 uv run main.py
     Hello from mcp-adapters!
 ```
+
+### LangGraph MCP Adapter
+
+- https://github.com/langchain-ai/langchain-mcp-adapters/
+
+```cmd
+REM Edit main.py
+cd mcp-servers\mcp-adapters
+.venv\Scripts\activate
+uv run main.py
+```

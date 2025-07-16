@@ -510,6 +510,7 @@ dependencies = [
     { name = "langchain", extra = ["openai"] },
     { name = "langchain-mcp-adapters" },
     { name = "langgraph" },
+    { name = "openai" },
     { name = "python-dotenv" },
 ]
 
@@ -518,6 +519,7 @@ requires-dist = [
     { name = "langchain", extras = ["openai"], specifier = ">=0.3.26" },
     { name = "langchain-mcp-adapters", specifier = ">=0.1.9" },
     { name = "langgraph", specifier = ">=0.5.3" },
+    { name = "openai", specifier = ">=1.95.1" },
     { name = "python-dotenv", specifier = ">=1.1.1" },
 ]
 
