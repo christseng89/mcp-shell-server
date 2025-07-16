@@ -99,11 +99,32 @@ uv run main.py
 
 ### LangGraph MCP Adapter
 
-- https://github.com/langchain-ai/langchain-mcp-adapters/
+1. Teacher example 
 
 ```cmd
 REM Edit main.py
 cd mcp-servers\mcp-adapters
 .venv\Scripts\activate
 uv run main.py
+```
+
+---
+
+2. Official LangGraph example
+
+- https://github.com/langchain-ai/langchain-mcp-adapters/
+```cmd
+cd mcp-servers\mcp-adapters
+.venv\Scripts\activate
+cd servers
+uv run weather_server.py
+```
+
+```cmd
+cd mcp-servers\mcp-adapters
+.venv\Scripts\activate
+uv run main.py
+    The result of \(54 + 2 \times 3\) is \(60\).
+    The weather in NYC is always sunny!
+
 ```
