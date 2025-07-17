@@ -13,7 +13,7 @@ Settings:
 `dev-18kjovdn.auth0.com`
 
 **Client ID**
-`Fy3fY6omWWTK7ocAd7WXWZtjvTiB29fJ`
+`Fy3fY6omWWTK7ocAd7....`
 
 **Client Secret**
 `••••••••••••••••••••••••••••••••••`
@@ -32,7 +32,7 @@ Cloudflare Dashboard => Storage & Databases => KV => Create Instance
 **Namespace name**
 OAUTH_KV
 
-=> Create => ID (356c75bd3b4748c19035919d86cd2662)
+=> Create => ID (356c75bd3b4748c190....)
 
 ```cmd
 cd auth0\ai\demos\remote-mcp-auth0\mcp-auth0-oidc
