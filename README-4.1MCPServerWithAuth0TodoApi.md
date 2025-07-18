@@ -100,8 +100,8 @@ curl --request POST \
   --url https://dev-18kjovdn.auth0.com/oauth/token \
   --header 'content-type: application/json' \
   --data '{
-    "client_id":"JjK0kreOPlmX0GbiRwSmIglKjoHP9HxP",
-    "client_secret":"WyV_6j-AAsGTw0l-Jf3l2B-Gc0phsBvWOvn2sHML8DRPmRIxeA6WXZTobl9LNVRc",
+    "client_id":"JjK0kreOPlmX0GbiR...",
+    "client_secret":"WyV_6j-AAsGTw0l-J...",
     "audience":"urn:todos-api",
     "grant_type":"client_credentials"
   }'
@@ -109,22 +109,22 @@ curl --request POST \
 ```
 
 ```note
-{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik56VTNSRFpDTWtWQ1FqQXhNVUpETnprM05EWTFSamd4TUVRNVFqSTRSVEpCTUVNMk1Ua3hPUSJ9.eyJpc3MiOiJodHRwczovL2Rldi0xOGtqb3Zkbi5hdXRoMC5jb20vIiwic3ViIjoiSmpLMGtyZU9QbG1YMEdiaVJ3U21JZ2xLam9IUDlIeFBAY2xpZW50cyIsImF1ZCI6InVybjp0b2Rvcy1hcGkiLCJpYXQiOjE3NTI3MzY5ODEsImV4cCI6MTc1MjgyMzM4MSwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiSmpLMGtyZU9QbG1YMEdiaVJ3U21JZ2xLam9IUDlIeFAifQ.XGbuFKjl9DVb8Lspsgxvyykh5VQeHLLXnIreO35BGJ9_d3Vo_qnQHISbMzEYREW30P65aFWXxDKYEhJNQSyv7lBdrRiFpv8lt25GP99VZppB4vNqG_cydPmygz-O40H9qzdRZgDUMrbrX9YApgBamuiCrFV-M92cUTcmnH5oE4LjKvJtufWPi31U3GqPJ67ty59FKsEwawXnlSNemzeLPUr5kxwQ5SwockBbYiKJ9Lwrbidd495Tan7S6JYau5f-D8tYWO6yOE_YSEaobmYwFZgvwaDZQKRdsgbI_XjtCHTppyStF-1S_xsXQDKdpMhEAB3mPUvckeKVYp0nhqMwqg","expires_in":86400,"token_type":"Bearer"}
+{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVC...","expires_in":86400,"token_type":"Bearer"}
 
 ```
 
 ```Sending
 curl --request GET \
   --url http://127.0.0.1:8789/api/todos \
-  --header 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik56VTNSRFpDTWtWQ1FqQXhNVUpETnprM05EWTFSamd4TUVRNVFqSTRSVEpCTUVNMk1Ua3hPUSJ9.eyJpc3MiOiJodHRwczovL2Rldi0xOGtqb3Zkbi5hdXRoMC5jb20vIiwic3ViIjoiSmpLMGtyZU9QbG1YMEdiaVJ3U21JZ2xLam9IUDlIeFBAY2xpZW50cyIsImF1ZCI6InVybjp0b2Rvcy1hcGkiLCJpYXQiOjE3NTI3MzY5ODEsImV4cCI6MTc1MjgyMzM4MSwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiSmpLMGtyZU9QbG1YMEdiaVJ3U21JZ2xLam9IUDlIeFAifQ.XGbuFKjl9DVb8Lspsgxvyykh5VQeHLLXnIreO35BGJ9_d3Vo_qnQHISbMzEYREW30P65aFWXxDKYEhJNQSyv7lBdrRiFpv8lt25GP99VZppB4vNqG_cydPmygz-O40H9qzdRZgDUMrbrX9YApgBamuiCrFV-M92cUTcmnH5oE4LjKvJtufWPi31U3GqPJ67ty59FKsEwawXnlSNemzeLPUr5kxwQ5SwockBbYiKJ9Lwrbidd495Tan7S6JYau5f-D8tYWO6yOE_YSEaobmYwFZgvwaDZQKRdsgbI_XjtCHTppyStF-1S_xsXQDKdpMhEAB3mPUvckeKVYp0nhqMwqg'
+  --header 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVC...'
 
     Unauthorized
 
 curl --request GET \
   --url http://127.0.0.1:8789/api/me \
-  --header 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik56VTNSRFpDTWtWQ1FqQXhNVUpETnprM05EWTFSamd4TUVRNVFqSTRSVEpCTUVNMk1Ua3hPUSJ9.eyJpc3MiOiJodHRwczovL2Rldi0xOGtqb3Zkbi5hdXRoMC5jb20vIiwic3ViIjoiSmpLMGtyZU9QbG1YMEdiaVJ3U21JZ2xLam9IUDlIeFBAY2xpZW50cyIsImF1ZCI6InVybjp0b2Rvcy1hcGkiLCJpYXQiOjE3NTI3MzY5ODEsImV4cCI6MTc1MjgyMzM4MSwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiSmpLMGtyZU9QbG1YMEdiaVJ3U21JZ2xLam9IUDlIeFAifQ.XGbuFKjl9DVb8Lspsgxvyykh5VQeHLLXnIreO35BGJ9_d3Vo_qnQHISbMzEYREW30P65aFWXxDKYEhJNQSyv7lBdrRiFpv8lt25GP99VZppB4vNqG_cydPmygz-O40H9qzdRZgDUMrbrX9YApgBamuiCrFV-M92cUTcmnH5oE4LjKvJtufWPi31U3GqPJ67ty59FKsEwawXnlSNemzeLPUr5kxwQ5SwockBbYiKJ9Lwrbidd495Tan7S6JYau5f-D8tYWO6yOE_YSEaobmYwFZgvwaDZQKRdsgbI_XjtCHTppyStF-1S_xsXQDKdpMhEAB3mPUvckeKVYp0nhqMwqg'  
+  --header 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVC...'  
 
-  {"iss":"https://dev-18kjovdn.auth0.com/","sub":"JjK0kreOPlmX0GbiRwSmIglKjoHP9HxP@clients","aud":"urn:todos-api","iat":1752736981,"exp":1752823381,"gty":"client-credentials","azp":"JjK0kreOPlmX0GbiRwSmIglKjoHP9HxP"}
+  {"iss":"https://dev-18kjovdn.auth0.com/","sub":"JjK0kreO...@clients","aud":"urn:todos-api","iat":1752736981,"exp":1752823381,"gty":"client-credentials","azp":"JjK0kre..."}
 ```
 
 ---
@@ -167,8 +167,8 @@ Computer (Workers) => Todos API => Settings =>
 ```cmd
 curl --request GET \
   --url https://todos-api.samfire5200.workers.dev/api/me \
-  --header 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik56VTNSRFpDTWtWQ1FqQXhNVUpETnprM05EWTFSamd4TUVRNVFqSTRSVEpCTUVNMk1Ua3hPUSJ9.eyJpc3MiOiJodHRwczovL2Rldi0xOGtqb3Zkbi5hdXRoMC5jb20vIiwic3ViIjoiSmpLMGtyZU9QbG1YMEdiaVJ3U21JZ2xLam9IUDlIeFBAY2xpZW50cyIsImF1ZCI6InVybjp0b2Rvcy1hcGkiLCJpYXQiOjE3NTI3MzY5ODEsImV4cCI6MTc1MjgyMzM4MSwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoiSmpLMGtyZU9QbG1YMEdiaVJ3U21JZ2xLam9IUDlIeFAifQ.XGbuFKjl9DVb8Lspsgxvyykh5VQeHLLXnIreO35BGJ9_d3Vo_qnQHISbMzEYREW30P65aFWXxDKYEhJNQSyv7lBdrRiFpv8lt25GP99VZppB4vNqG_cydPmygz-O40H9qzdRZgDUMrbrX9YApgBamuiCrFV-M92cUTcmnH5oE4LjKvJtufWPi31U3GqPJ67ty59FKsEwawXnlSNemzeLPUr5kxwQ5SwockBbYiKJ9Lwrbidd495Tan7S6JYau5f-D8tYWO6yOE_YSEaobmYwFZgvwaDZQKRdsgbI_XjtCHTppyStF-1S_xsXQDKdpMhEAB3mPUvckeKVYp0nhqMwqg'  
+  --header 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVC...'  
 
-    {"iss":"https://dev-18kjovdn.auth0.com/","sub":"JjK0kreOPlmX0GbiRwSmIglKjoHP9HxP@clients","aud":"urn:todos-api","iat":1752736981,"exp":1752823381,"gty":"client-credentials","azp":"JjK0kreOPlmX0GbiRwSmIglKjoHP9HxP"}
+    {"iss":"https://dev-18kjovdn.auth0.com/","sub":"JjK0kreOPlmX0G...@clients","aud":"urn:todos-api","iat":1752736981,"exp":1752823381,"gty":"client-credentials","azp":"JjK0kreOPlmX0Gbi..."}
 
 ```

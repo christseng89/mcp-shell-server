@@ -80,31 +80,6 @@ http://localhost:8788/sse
 
 => Connect => http://localhost:8788/authorize?... **Allow Access**
 
-### Local Environment Summary
-
-Inspector => MCP Server (Local) => Todos API (Local)
-
-```cmd
-REM MCP Server Local
-cd auth0\ai\demos\remote-mcp-auth0\mcp-auth0-oidc
-npm run dev
-REM Ready on http://127.0.0.1:8788
-
-REM Todos API
-cd auth0\ai\demos\remote-mcp-auth0\todos-api
-npm run dev
-REM Ready on http://127.0.0.1:8789
-
-REM Inspector
-npx @modelcontextprotocol/inspector
-REM http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=e2a71280488fa6c72e34f8e57e0cd227722d4829ee486cbec7153f8d04a58f8f
-
-
-REM Auth0 => Remote MCP Server Callback to http://localhost:8788/callback
-REM Press 'Allow Access'
-
-```
-
 #### Quick Overview MCP Server
 
 - index.ts
@@ -119,4 +94,48 @@ REM Press 'Allow Access'
 ```note Edit .dev.vars
 AUTH0_SCOPE=openid email profile offline_access read:todos read:billing
 
+```
+
+## Local Environment Summary
+
+- https://auth0.com/blog/secure-and-deploy-remote-mcp-servers-with-auth0-and-cloudflare/
+
+- Inspector => MCP Server (Local) => Todos API (Local)
+
+```cmd
+REM Wrangler
+cd remote-mcp-auth0
+npx wrangler --version
+
+REM MCP Server Local
+cd mcp-auth0-oidc
+npm run dev
+REM Ready on http://127.0.0.1:8788
+
+REM Todos API
+cd remote-mcp-auth0\todos-api
+npm run dev
+REM Ready on http://127.0.0.1:8789
+
+REM Inspector
+npx @modelcontextprotocol/inspector
+REM http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=e2a71280488fa6c72e34f8e57e0cd2...
+
+
+REM Auth0 => Remote MCP Server Callback to http://localhost:8788/callback
+REM Press 'Allow Access'
+
+```
+
+## Deploy the MCP Server to Cloudflare
+
+```cmd
+cd remote-mcp-auth0\mcp-auth0-oidc
+
+npx wrangler secret put AUTH0_DOMAIN
+npx wrangler secret put AUTH0_AUDIENCE
+npx wrangler secret put AUTH0_CLIENT_ID
+npx wrangler secret put AUTH0_CLIENT_SECRET
+npx wrangler secret put AUTH0_SCOPE
+npx wrangler secret put API_BASE_URL
 ```
