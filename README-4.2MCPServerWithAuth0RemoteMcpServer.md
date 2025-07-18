@@ -129,6 +129,10 @@ REM Press 'Allow Access'
 
 ## Deploy the MCP Server to Cloudflare
 
+- https://dash.cloudflare.com/
+
+Compute (Workers) => todos-api => Settings => Domains & Routes => workers.dev (todos-api.samfire5200.workers.dev)
+
 ```cmd
 cd remote-mcp-auth0\mcp-auth0-oidc
 
@@ -138,4 +142,122 @@ npx wrangler secret put AUTH0_CLIENT_ID
 npx wrangler secret put AUTH0_CLIENT_SECRET
 npx wrangler secret put AUTH0_SCOPE
 npx wrangler secret put API_BASE_URL
+    https://todos-api.samfire5200.workers.dev
 ```
+
+Compute (Workers) => mcp-auth0-oidc => Settings => Variables and Secrets
+
+```cmd
+npx wrangler deploy
+```
+
+### Modify Auth0 Application Settings
+
+Auth0 Dashboard => Applications => Remote MCP Server => Settings
+
+- Allowed Callback URLs
+`http://localhost:8788/callback, https://mcp-auth0-oidc.samfire5200.workers.dev/callback` => Save
+
+#### Test via Inspector
+
+```cmd
+npx @modelcontextprotocol/inspector 
+```
+
+- Transport Type: SSE
+- URL: https://mcp-auth0-oidc.samfire5200.workers.dev/sse
+
+---
+
+#### Test via Cloudflare Workers AI Playground
+
+- https://playground.ai.cloudflare.com/
+
+MCP Server: https://mcp-auth0-oidc.samfire5200.workers.dev/sse
+
+---
+
+#### Test by using Claude Remote MCP Proxy
+
+```json
+    "todos": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp-auth0-oidc.samfire5200.workers.dev/sse"
+      ]
+    }
+```
+
+## Agent to Agent
+
+**Agent-to-Agent (A2A)** communication refers to interactions where autonomous **AI agents** (or services acting as agents) communicate and collaborate **directly with each other**—without human involvement at each step.
+
+---
+
+### 🧠 What Is Agent-to-Agent?
+
+In an **agentic AI system**, each agent typically has:
+
+* Its own **goals**
+* A set of **tools**
+* Access to **memory or context**
+* Ability to communicate with other agents
+
+**Agent-to-Agent** communication means:
+
+* One agent can send a task, query, or message to another agent.
+* Agents can negotiate, delegate, or coordinate tasks collaboratively.
+
+---
+
+### 🎯 Purpose of Agent-to-Agent Communication
+
+| Purpose                      | Description                                                                   |
+| ---------------------------- | ----------------------------------------------------------------------------- |
+| 🤝 **Collaboration**         | Agents can divide and conquer complex workflows (e.g. research → execution).  |
+| 📡 **Delegation**            | One agent offloads specialized tasks to another (e.g. translate, search).     |
+| 🔁 **Orchestration**         | Agents coordinate sub-tasks in a pipeline (e.g. planning → coding → testing). |
+| 🔍 **Validation & Feedback** | Agents can cross-check or validate each other's outputs.                      |
+| 🔄 **Autonomy in loops**     | Enables long-running autonomous behavior (e.g. recursive task refinement).    |
+
+---
+
+### ✅ Benefits of Using Agent-to-Agent Systems
+
+| Benefit                          | Why it Matters                                                          |
+| -------------------------------- | ----------------------------------------------------------------------- |
+| 🧩 **Modular Design**            | Agents can be specialized and independently improved or replaced.       |
+| ⚙️ **Scalability**               | Workload is distributed among agents; system handles complexity better. |
+| 🤖 **Reduced Human Involvement** | Agents can run entire workflows without waiting for user input.         |
+| 🛠️ **Tool Specialization**      | Each agent can use tools optimized for a particular task or domain.     |
+| 📈 **Efficiency and Speed**      | Parallel processing and task delegation make systems more responsive.   |
+
+---
+
+### 🧪 Example Use Case: Research & Development Agent System
+
+1. **Planner Agent**: Breaks a prompt into sub-tasks.
+2. **Research Agent**: Searches the web or documents.
+3. **Coder Agent**: Writes code based on task.
+4. **Tester Agent**: Validates output.
+5. **Critic Agent**: Reviews or improves the result.
+
+These agents talk **to each other**, not just the user.
+
+---
+
+### 🤖 Tools & Frameworks Supporting A2A
+
+* **OpenAI Agents SDK**
+* **LangGraph** (graph-based agent orchestration)
+* **CrewAI** (multi-agent task delegation)
+* **AutoGen** (from Microsoft)
+* **AgentOps/MCP** (with remote agent endpoints)
+
+---
+
+Agent to Agent 
+
+1. Use APIs or MCP Servers as the Common Interface
+2. Message-Based Interaction via Queue
